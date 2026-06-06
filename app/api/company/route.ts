@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 
@@ -12,7 +13,6 @@ export async function GET() {
       const count = c.salaries.length
       const avgTotal = count > 0 ? c.salaries.reduce((s: number, r: any) => s + r.total, 0) / count : 0
       const avgBase = count > 0 ? c.salaries.reduce((s: number, r: any) => s + r.base, 0) / count : 0
-
       return {
         id: c.id,
         name: c.name,
