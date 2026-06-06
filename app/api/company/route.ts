@@ -12,7 +12,7 @@ export async function GET() {
       orderBy: { name: "asc" },
     })
 
-    const result = companies.map((c) => {
+    const result = companies.map((c: any) => {
       const count = c.salaries.length
       const avgTotal = count > 0 ? c.salaries.reduce((s, r) => s + r.total, 0) / count : 0
       const avgBase = count > 0 ? c.salaries.reduce((s, r) => s + r.base, 0) / count : 0
